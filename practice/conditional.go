@@ -34,6 +34,63 @@ func condition() {
 	}
 	fmt.Printf("Status: %s\n", status)
 
+	// OPERATORS
+	// Operators are used in conditions and expressions throughout Go.
+	// Arithmetic operators: add, subtract, multiply, divide, modulo.
+	a := 10
+	b := 3
+	fmt.Printf("a+b=%d, a-b=%d, a*b=%d, a/b=%d, a%%b=%d\n", a+b, a-b, a*b, a/b, a%b)
+
+	// Comparison operators: compare values, produce boolean results.
+	fmt.Printf("a==b=%v, a!=b=%v, a<b=%v, a<=b=%v, a>b=%v, a>=b=%v\n",
+		a == b, a != b, a < b, a <= b, a > b, a >= b)
+
+	// Logical operators: combine boolean expressions.
+	isAdult := age >= 18
+	isStudent := false
+	if isAdult && !isStudent {
+		fmt.Println("Adult and not a student")
+	}
+	if isAdult || isStudent {
+		fmt.Println("Either adult or student or both")
+	}
+
+	// Bitwise operators: work on integer bits.
+	// Use when you need to manipulate flags, binary masks, or perform low-level math.
+	var flags uint8 = 0b00001111
+	mask := uint8(0b00110011)
+	fmt.Printf("flags & mask = %08b\n", flags&mask)
+	fmt.Printf("flags | mask = %08b\n", flags|mask)
+	fmt.Printf("flags ^ mask = %08b\n", flags^mask)
+	fmt.Printf("flags &^ mask = %08b\n", flags&^mask) // AND NOT
+	fmt.Printf("flags << 1 = %08b\n", flags<<1)
+	fmt.Printf("flags >> 2 = %08b\n", flags>>2)
+
+	// Assignment operators: modify a variable in place.
+	count := 5
+	count += 2 // count = count + 2
+	count -= 1 // count = count - 1
+	count *= 2 // count = count * 2
+	count /= 2 // count = count / 2
+	count %= 3 // count = count % 3
+	fmt.Printf("after compound assignments count=%d\n", count)
+
+	// String concatenation is also done with +.
+	hello := "Hello"
+	world := "World"
+	fmt.Println(hello + " " + world)
+
+	// The not operator (!) negates a boolean expression.
+	isOpen := false
+	if !isOpen {
+		fmt.Println("The store is closed")
+	}
+
+	// The comma-ok form is an operator-like construct used in maps.
+	m := map[string]int{"one": 1}
+	_, ok := m["two"]
+	fmt.Printf("key two present? %v\n", ok)
+
 	// SWITCH
 	// Switch is often cleaner than long if/else chains for discrete values.
 	day := 3
@@ -85,7 +142,7 @@ func condition() {
 
 	// WHILE-LIKE LOOP
 	// Omit init and post statements for while-like behavior.
-	count := 0
+	count = 0
 	for count < 3 {
 		fmt.Printf("while-like count=%d\n", count)
 		count++
