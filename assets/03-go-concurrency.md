@@ -46,7 +46,7 @@
 
 ## Production Patterns
 
-Phase 2: Intermediate Go
+Phase 2: Intermediate Go,
 Goroutines
 Channels
 Context
